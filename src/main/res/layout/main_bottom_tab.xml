@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_bottom"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_bottom_height"
+    android:background="@android:color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/btn_scan"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:drawablePadding="4dp"
+        android:drawableTop="@drawable/main_selector_scan"
+        android:gravity="center"
+        android:onClick="onTabSelect"
+        android:paddingBottom="4dip"
+        android:paddingTop="6dip"
+        android:text="@string/main_scan"
+        android:textColor="@drawable/main_selector_bottom_btn"
+        android:textSize="@dimen/main_bottom_tab" />
+
+    <TextView
+        android:id="@+id/btn_history"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:drawablePadding="4dp"
+        android:drawableTop="@drawable/main_selector_history"
+        android:gravity="center"
+        android:onClick="onTabSelect"
+        android:paddingBottom="4dip"
+        android:paddingTop="6dip"
+        android:text="@string/main_history"
+        android:textColor="@drawable/main_selector_bottom_btn"
+        android:textSize="@dimen/main_bottom_tab" />
+
+    <TextView
+        android:id="@+id/btn_discover"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:drawablePadding="4dp"
+        android:drawableTop="@drawable/main_selector_discover"
+        android:gravity="center"
+        android:onClick="onTabSelect"
+        android:paddingBottom="4dip"
+        android:paddingTop="6dip"
+        android:text="@string/main_discover"
+        android:textColor="@drawable/main_selector_bottom_btn"
+        android:textSize="@dimen/main_bottom_tab" />
+
+    <TextView
+        android:id="@+id/btn_me"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:drawablePadding="4dp"
+        android:drawableTop="@drawable/main_selector_me"
+        android:gravity="center"
+        android:onClick="onTabSelect"
+        android:paddingBottom="4dip"
+        android:paddingTop="6dip"
+        android:text="@string/main_me"
+        android:textColor="@drawable/main_selector_bottom_btn"
+        android:textSize="@dimen/main_bottom_tab" />
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_bottom_tab">11sp</dimen>
+    <dimen name="app_text_size_large">17sp</dimen>
+    <dimen name="app_text_size_middle">15.2sp</dimen>
+    <dimen name="app_text_size_small">14sp</dimen>
+</resources>

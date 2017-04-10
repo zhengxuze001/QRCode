@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">QRCode</string>
+
+    <string name="main_scan">扫描</string>
+    <string name="main_history">历史</string>
+    <string name="main_discover">发现</string>
+    <string name="main_me">我</string>
+</resources>

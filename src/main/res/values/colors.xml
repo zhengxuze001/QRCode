@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="app_split">#ffdedede</color>
+
+    <color name="main_bottom_btn_selected">#33B3E3</color>
+    <color name="main_bottom_btn_normal">#949494</color>
 </resources>
