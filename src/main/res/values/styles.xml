@@ -1,11 +1,17 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/app_bg_gray</item>
+    </style>
+
+    <style name="progress_bar_loading" parent="@android:style/Widget.ProgressBar">
+        <item name="android:minHeight">24px</item>
+        <item name="android:maxHeight">24px</item>
     </style>
 
 </resources>

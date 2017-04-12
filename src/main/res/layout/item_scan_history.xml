@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/QRCode_imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/QRCode_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="网址"
+                android:textColor="@color/app_color_black"
+                android:textSize="@dimen/app_text_size_middle" />
+
+            <TextView
+                android:id="@+id/QRCode_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:minLines="2"
+                android:text="http://www.baidu.com"
+                android:textColor="@color/app_color_gray_shallow"
+                android:textSize="@dimen/app_text_size_small" />
+
+            <TextView
+                android:id="@+id/QRCode_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="2017.04.11"
+                android:textColor="@color/app_color_gray_shallow"
+                android:textSize="@dimen/app_text_size_small" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right_gray" />
+
+    </LinearLayout>
+
+    <include layout="@layout/common_split_block" />
+
+</LinearLayout>
