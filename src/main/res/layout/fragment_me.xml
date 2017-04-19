@@ -1,6 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/bg_me_header"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/my_head_iv"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/doge"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="2dp" />
+
+        <TextView
+            android:id="@+id/my_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="xone"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/app_text_size_middle" />
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/app_style_item_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_arrow_right_gray"
+        android:text="我的收藏" />
+
+    <include layout="@layout/common_split" />
+
+    <TextView
+        style="@style/app_style_item_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_arrow_right_gray"
+        android:text="我的评论" />
+
+    <include layout="@layout/common_split" />
+
+    <TextView
+        android:id="@+id/loginOutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/common_selector_btn"
+        android:clickable="true"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="退出登录"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/app_text_size_small" />
 
 </LinearLayout>

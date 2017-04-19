@@ -14,4 +14,15 @@
         <item name="android:maxHeight">24px</item>
     </style>
 
+    <style name="app_style_item_text" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textSize">@dimen/app_text_size_small</item>
+        <item name="android:textColor">@color/app_color_gray</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:background">@drawable/common_selector_item</item>
+        <item name="android:clickable">true</item>
+    </style>
+
 </resources>
