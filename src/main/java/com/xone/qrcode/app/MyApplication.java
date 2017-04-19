@@ -25,6 +25,8 @@ package com.xone.qrcode.app;
 
 import android.app.Application;
 
+import cn.bmob.v3.Bmob;
+
 /**
  * Created by zhengxuze on 2017/4/12.
  */
@@ -35,7 +37,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-//        Bmob.initialize(this, "377971865b4076f09a2884c55970ff6a");
+        Bmob.initialize(this, "24a3a138ff76887a74b08f5d68a70d43");
         mInstance = this;
     }
 
