@@ -1,5 +1,6 @@
 package com.xone.qrcode.ui.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xone.qrcode.R;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by zhengxuze on 2017/4/10.
@@ -57,5 +60,10 @@ public class BaseActivity extends AppCompatActivity {
 
     public void showToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

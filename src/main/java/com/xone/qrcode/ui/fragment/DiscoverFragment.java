@@ -1,5 +1,6 @@
 package com.xone.qrcode.ui.fragment;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -55,6 +56,8 @@ public class DiscoverFragment extends Fragment {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         mPagerSlidingTabStrip.setViewPager(mViewPager);
+        Typeface myFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/MyFont.ttf");
+        mPagerSlidingTabStrip.setTypeface(Typeface.create(myFont, Typeface.NORMAL), Typeface.NORMAL);
         int textSize = DisplayUtil.sp2px(getActivity(), 14);
         mPagerSlidingTabStrip.setTextSize(textSize);
     }
