@@ -22,7 +22,7 @@ public class DiscoverFragment extends Fragment {
     private View mContentView;
     private PagerSlidingTabStrip mPagerSlidingTabStrip;
     private ViewPager mViewPager;
-    private static String mTypeNames[] = new String[]{"公告", "资讯", "钓鱼", "漏洞"};
+    private static String mTypeNames[] = new String[]{"推荐", "资讯", "漏洞", "恶意软件"};
     private static int mTypes[] = new int[]{0, 1, 2, 4};
     private Fragment[] fragments;
     private SectionsPagerAdapter mSectionsPagerAdapter;

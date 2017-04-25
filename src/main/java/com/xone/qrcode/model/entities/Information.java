@@ -1,12 +1,13 @@
 package com.xone.qrcode.model.entities;
 
+import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.datatype.BmobFile;
 
 /**
  * Created by zhengxuze on 2017/4/19.
  */
 
-public class Information {
+public class Information extends BmobObject {
     private Integer type;
     private String title;
     private String publisher;

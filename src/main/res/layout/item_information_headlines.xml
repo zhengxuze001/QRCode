@@ -3,14 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="12dp">
+    android:paddingEnd="12dp"
+    android:paddingStart="12dp"
+    android:paddingTop="10dp">
 
     <TextView
         android:id="@+id/information_title_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/app_color_black"
-        android:textSize="@dimen/app_text_size_large" />
+        android:textColor="@color/app_color_gray"
+        android:textSize="@dimen/app_text_size_middle" />
 
     <ImageView
         android:id="@+id/information_imageView"
@@ -25,7 +27,13 @@
         android:id="@+id/information_publisher_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/app_color_gray"
+        android:textColor="@color/app_color_gray_shallow"
         android:textSize="@dimen/app_text_size_small" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.0px"
+        android:layout_marginTop="10dp"
+        android:background="@color/app_split" />
 
 </LinearLayout>

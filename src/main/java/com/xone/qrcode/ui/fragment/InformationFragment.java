@@ -1,5 +1,6 @@
 package com.xone.qrcode.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import com.xone.qrcode.adapter.InformationAdapter;
 import com.xone.qrcode.model.entities.Information;
 import com.xone.qrcode.presenter.impl.InformationPresenter;
 import com.xone.qrcode.presenter.interfaces.IInformationPresenter;
+import com.xone.qrcode.ui.activity.InformationDetailsActivity;
 import com.xone.qrcode.ui.interfaces.IInformationView;
 import com.xone.qrcode.widget.xlistview.XListView;
 
@@ -106,7 +108,9 @@ public class InformationFragment extends Fragment implements AdapterView.OnItemC
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        Intent intent = new Intent(getActivity(), InformationDetailsActivity.class);
+        intent.putExtra("objectId", mData.get(position - 1).getObjectId());
+        startActivity(intent);
     }
 
     @Override

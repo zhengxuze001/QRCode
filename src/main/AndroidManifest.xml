@@ -30,6 +30,7 @@
         </activity>
         <activity android:name=".ui.activity.MainActivity" />
         <activity android:name=".ui.activity.QRCodeDetailsActivity" />
+        <activity android:name=".ui.activity.InformationDetailsActivity"></activity>
     </application>
 
 </manifest>
