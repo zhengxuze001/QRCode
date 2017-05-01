@@ -141,7 +141,16 @@ public class QRCodeDetailsActivity extends BaseActivity {
                 }
                 break;
             case R.id.homeUrl_layout:
-
+                if (null != mWebsiteSecurityResponse) {
+                    IcpLicensing icpLicensing = mWebsiteSecurityResponse.getIcpLicensing();
+                    if (null != icpLicensing) {
+                        Intent intent = new Intent(QRCodeDetailsActivity.this, HomeUrlDetailsActivity.class);
+                        intent.putExtra("websiteName", icpLicensing.getWebsiteName());
+                        intent.putExtra("websiteHomeUrl", icpLicensing.getWebsiteHomeUrl());
+                        intent.putExtra("examineTime", icpLicensing.getExamineTime());
+                        startActivity(intent);
+                    }
+                }
                 break;
             case R.id.safeOpeningBtn:
                 Intent intent = new Intent();
