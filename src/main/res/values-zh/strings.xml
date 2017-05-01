@@ -7,6 +7,16 @@
     <string name="main_discover">发现</string>
     <string name="main_me">我</string>
 
+    <string name="app_text_secure">安全</string>
+    <string name="app_text_insecure">安全未知</string>
+    <string name="app_text_secure_message">该二维码安全，请放心访问</string>
+    <string name="app_text_insecure_message">该二维码安全未知，请谨慎访问</string>
+    <string name="app_text_icp">备案信息：</string>
+    <string name="app_text_icp_null">暂无备案信息</string>
+    <string name="app_text_home_url">首页信息：</string>
+    <string name="app_text_home_url_null">暂无首页信息</string>
+    <string name="app_text_comment">用户评价：</string>
+
     <string name="xlistview_header_hint_normal">下拉刷新</string>
     <string name="xlistview_header_hint_ready">松开刷新数据</string>
     <string name="xlistview_header_hint_loading">正在加载...</string>

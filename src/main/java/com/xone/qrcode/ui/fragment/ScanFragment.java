@@ -1,5 +1,6 @@
 package com.xone.qrcode.ui.fragment;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.zxing.Result;
 import com.google.zxing.client.result.AddressBookParsedResult;
@@ -19,6 +21,9 @@ import com.mylhyl.zxing.scanner.OnScannerCompletionListener;
 import com.mylhyl.zxing.scanner.ScannerView;
 import com.mylhyl.zxing.scanner.result.AddressBookResult;
 import com.xone.qrcode.R;
+import com.xone.qrcode.app.MyApplication;
+import com.xone.qrcode.db.ScanHistoryManager;
+import com.xone.qrcode.ui.activity.OtherQRCodeDetailsActivity;
 import com.xone.qrcode.ui.activity.QRCodeDetailsActivity;
 import com.xone.qrcode.util.FileUtil;
 
@@ -76,56 +81,33 @@ public class ScanFragment extends Fragment implements OnScannerCompletionListene
     @Override
     public void OnScannerCompletion(Result rawResult, ParsedResult parsedResult, Bitmap barcode) {
         String picPath = FileUtil.saveBitmap(barcode);
-
         ParsedResultType type = parsedResult.getType();
+        saveScanHistory(type.toString(), rawResult.getText(), picPath);
 
-        Intent intent = new Intent(getActivity(), QRCodeDetailsActivity.class);
-        intent.putExtra("type", type.toString());
-        intent.putExtra("content", rawResult.getText());
-        intent.putExtra("imgPath", picPath);
-        startActivity(intent);
-
-        Log.i("test", rawResult.getText());
         switch (type) {
             case URI:
-//                URIParsedResult uriParsedResult = (URIParsedResult) parsedResult;
-//                bundle.putString(Intents.Scan.RESULT, uriParsedResult.getURI());
-                break;
-            case TEXT:
-//                bundle.putString(Intents.Scan.RESULT, rawResult.getText());
-                break;
-            case ADDRESSBOOK:
-
-                break;
-            case EMAIL_ADDRESS:
-
-                break;
-            case PRODUCT:
-
-                break;
-            case GEO:
-
-                break;
-            case TEL:
-
-                break;
-            case SMS:
-
-                break;
-            case CALENDAR:
-
-                break;
-            case WIFI:
-
-                break;
-            case ISBN:
-
-                break;
-            case VIN:
-
+                URIParsedResult uriParsedResult = (URIParsedResult) parsedResult;
+                Intent intent = new Intent(getActivity(), QRCodeDetailsActivity.class);
+                intent.putExtra("url", uriParsedResult.getURI());
+                startActivity(intent);
                 break;
             default:
+                Intent intent2 = new Intent(getActivity(), OtherQRCodeDetailsActivity.class);
+                intent2.putExtra("content", parsedResult.getDisplayResult());
+                startActivity(intent2);
                 break;
+        }
+    }
+
+    private void saveScanHistory(String type, String content, String imagePath) {
+        ScanHistoryManager scanHistoryManager = new ScanHistoryManager(MyApplication.getInstance().getApplicationContext());
+        ContentValues values = new ContentValues();
+        values.put("QRCodeImgPath", imagePath);
+        values.put("QRCodeContent", content);
+        values.put("QRCodeType", type);
+        values.put("QRCodeTime", System.currentTimeMillis());
+        if (scanHistoryManager.save("ScanHistory", values) < 1) {
+            Toast.makeText(getActivity(), "存储扫描历史失败", Toast.LENGTH_SHORT);
         }
     }
 }

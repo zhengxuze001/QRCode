@@ -2,4 +2,13 @@
 <resources>
     <dimen name="main_bottom_height">52dp</dimen>
     <dimen name="toolbar_height">48.0dip</dimen>
+
+    <!-- 通用item设置 -->
+    <dimen name="base_item_height">45dp</dimen>
+    <dimen name="base_item_padding">15dp</dimen>
+    <dimen name="base_item_text_icon">10dp</dimen>
+    <dimen name="base_item_text_padding">12dp</dimen>
+
+    <dimen name="qr_code_details_title_mark">5dp</dimen>
+    <dimen name="qr_code_details_title_mark_padding">7dp</dimen>
 </resources>

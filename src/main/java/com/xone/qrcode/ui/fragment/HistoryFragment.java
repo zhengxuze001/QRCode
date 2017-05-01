@@ -1,5 +1,6 @@
 package com.xone.qrcode.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,8 @@ import com.xone.qrcode.adapter.ScanHistoryAdapter;
 import com.xone.qrcode.model.entities.ScanHistory;
 import com.xone.qrcode.presenter.impl.ScanHistoryPresenter;
 import com.xone.qrcode.presenter.interfaces.IScanHistoryPresenter;
+import com.xone.qrcode.ui.activity.OtherQRCodeDetailsActivity;
+import com.xone.qrcode.ui.activity.QRCodeDetailsActivity;
 import com.xone.qrcode.ui.interfaces.IScanHistoryView;
 import com.xone.qrcode.widget.xlistview.XListView;
 
@@ -88,7 +91,16 @@ public class HistoryFragment extends Fragment implements AdapterView.OnItemClick
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        ScanHistory scanHistory = mData.get(position - 1);
+        if ("URI".equals(scanHistory.getQRCodeType())) {
+            Intent intent = new Intent(getActivity(), QRCodeDetailsActivity.class);
+            intent.putExtra("url", scanHistory.getQRCodeContent());
+            startActivity(intent);
+        } else {
+            Intent intent2 = new Intent(getActivity(), OtherQRCodeDetailsActivity.class);
+            intent2.putExtra("content", scanHistory.getQRCodeContent());
+            startActivity(intent2);
+        }
     }
 
     @Override
