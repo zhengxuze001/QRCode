@@ -35,6 +35,7 @@ public class QRCodeDetailsActivity extends BaseActivity {
     private ProgressBar mProgressBar;
     private TextView mErrorView;
     private TextView mSafeOpeningBtn;
+    private WebsiteSecurityResponse mWebsiteSecurityResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,28 +90,28 @@ public class QRCodeDetailsActivity extends BaseActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 String result = response.body().string();
                 Gson gson = new Gson();
-                final WebsiteSecurityResponse websiteSecurityResponse = gson.fromJson(result, WebsiteSecurityResponse.class);
+                mWebsiteSecurityResponse = gson.fromJson(result, WebsiteSecurityResponse.class);
 
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (1 == websiteSecurityResponse.getStatus()) {
-                            mSecurityTextView.setText(websiteSecurityResponse.isSecurity() ? R.string.app_text_secure : R.string.app_text_insecure);
-                            Drawable topDrawable = getResources().getDrawable(websiteSecurityResponse.isSecurity() ? R.drawable.ic_secure : R.drawable.ic_insecure);
+                        if (1 == mWebsiteSecurityResponse.getStatus()) {
+                            mSecurityTextView.setText(mWebsiteSecurityResponse.isSecurity() ? R.string.app_text_secure : R.string.app_text_insecure);
+                            Drawable topDrawable = getResources().getDrawable(mWebsiteSecurityResponse.isSecurity() ? R.drawable.ic_secure : R.drawable.ic_insecure);
                             topDrawable.setBounds(0, 0, topDrawable.getMinimumWidth(), topDrawable.getMinimumHeight());
                             mSecurityTextView.setCompoundDrawables(null, topDrawable, null, null);
-                            mSecurityHintTextView.setText(websiteSecurityResponse.isSecurity() ? R.string.app_text_secure_message : R.string.app_text_insecure_message);
-                            mSecureLayout.setBackgroundResource(websiteSecurityResponse.isSecurity() ? R.color.app_color_secure : R.color.app_color_insecure);
-                            setToolbarColor(websiteSecurityResponse.isSecurity() ? R.color.app_color_secure : R.color.app_color_insecure);
-                            mSafeOpeningBtn.setVisibility(websiteSecurityResponse.isSecurity() ? View.VISIBLE : View.GONE);
-                            IcpLicensing icpLicensing = websiteSecurityResponse.getIcpLicensing();
+                            mSecurityHintTextView.setText(mWebsiteSecurityResponse.isSecurity() ? R.string.app_text_secure_message : R.string.app_text_insecure_message);
+                            mSecureLayout.setBackgroundResource(mWebsiteSecurityResponse.isSecurity() ? R.color.app_color_secure : R.color.app_color_insecure);
+                            setToolbarColor(mWebsiteSecurityResponse.isSecurity() ? R.color.app_color_secure : R.color.app_color_insecure);
+                            mSafeOpeningBtn.setVisibility(mWebsiteSecurityResponse.isSecurity() ? View.VISIBLE : View.GONE);
+                            IcpLicensing icpLicensing = mWebsiteSecurityResponse.getIcpLicensing();
                             if (null != icpLicensing) {
                                 setTextViewText(mIcpTextView, icpLicensing.getOrganizerName());
                                 setTextViewText(mHomeUrlTextView, icpLicensing.getWebsiteHomeUrl());
                             }
                             hideLoading();
-                        } else if (0 == websiteSecurityResponse.getStatus()) {
-                            showErrorMsg(websiteSecurityResponse.getMsg());
+                        } else if (0 == mWebsiteSecurityResponse.getStatus()) {
+                            showErrorMsg(mWebsiteSecurityResponse.getMsg());
                         }
                     }
                 });
@@ -127,7 +128,17 @@ public class QRCodeDetailsActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.icp_layout:
-
+                if (null != mWebsiteSecurityResponse) {
+                    IcpLicensing icpLicensing = mWebsiteSecurityResponse.getIcpLicensing();
+                    if (null != icpLicensing) {
+                        Intent intent = new Intent(QRCodeDetailsActivity.this, IcpLicensingDetailsActivity.class);
+                        intent.putExtra("organizerName", icpLicensing.getOrganizerName());
+                        intent.putExtra("organizerType", icpLicensing.getOrganizerType());
+                        intent.putExtra("licenseNumber", icpLicensing.getLicenseNumber());
+                        intent.putExtra("examineTime", icpLicensing.getExamineTime());
+                        startActivity(intent);
+                    }
+                }
                 break;
             case R.id.homeUrl_layout:
 

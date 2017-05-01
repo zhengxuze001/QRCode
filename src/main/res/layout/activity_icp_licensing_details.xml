@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_toolbar" />
+
+    <include layout="@layout/common_split_block" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_item_height"
+        android:background="@drawable/base_selector_item"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/base_item_text_padding"
+        android:paddingRight="@dimen/base_item_text_padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主办单位："
+            android:textColor="@color/app_text_gray_deep"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <TextView
+            android:id="@+id/organizerNameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:maxLines="1"
+            android:text="暂无主办单位信息"
+            android:textColor="@color/app_text_gray"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right_gray" />
+
+    </LinearLayout>
+
+    <include layout="@layout/common_split" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_item_height"
+        android:background="@drawable/base_selector_item"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/base_item_text_padding"
+        android:paddingRight="@dimen/base_item_text_padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="单位性质："
+            android:textColor="@color/app_text_gray_deep"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <TextView
+            android:id="@+id/organizerTypeTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:maxLines="1"
+            android:text="暂无单位性质信息"
+            android:textColor="@color/app_text_gray"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right_gray" />
+
+    </LinearLayout>
+
+    <include layout="@layout/common_split" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_item_height"
+        android:background="@drawable/base_selector_item"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/base_item_text_padding"
+        android:paddingRight="@dimen/base_item_text_padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="许可证号："
+            android:textColor="@color/app_text_gray_deep"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <TextView
+            android:id="@+id/licenseNumberTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:maxLines="1"
+            android:text="暂无许可证号信息"
+            android:textColor="@color/app_text_gray"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right_gray" />
+
+    </LinearLayout>
+
+    <include layout="@layout/common_split" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_item_height"
+        android:background="@drawable/base_selector_item"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/base_item_text_padding"
+        android:paddingRight="@dimen/base_item_text_padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="审核日期："
+            android:textColor="@color/app_text_gray_deep"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <TextView
+            android:id="@+id/examineTimeTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:maxLines="1"
+            android:text="暂无审核日期信息"
+            android:textColor="@color/app_text_gray"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right_gray" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -31,7 +31,8 @@
         <activity android:name=".ui.activity.MainActivity" />
         <activity android:name=".ui.activity.QRCodeDetailsActivity" />
         <activity android:name=".ui.activity.InformationDetailsActivity" />
-        <activity android:name=".ui.activity.OtherQRCodeDetailsActivity"></activity>
+        <activity android:name=".ui.activity.OtherQRCodeDetailsActivity" />
+        <activity android:name=".ui.activity.IcpLicensingDetailsActivity"></activity>
     </application>
 
 </manifest>
