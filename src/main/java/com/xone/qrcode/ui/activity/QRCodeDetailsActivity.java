@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.xone.qrcode.R;
 import com.xone.qrcode.model.entities.IcpLicensing;
 import com.xone.qrcode.model.entities.WebsiteSecurityResponse;
+import com.xone.qrcode.ui.dialog.ReportDialog;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -24,7 +25,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class QRCodeDetailsActivity extends BaseActivity {
+public class QRCodeDetailsActivity extends BaseActivity implements View.OnClickListener {
     private String mUrl;
     private View mContentView;
     private View mSecureLayout;
@@ -49,6 +50,16 @@ public class QRCodeDetailsActivity extends BaseActivity {
         initViews();
         showLoading();
         initSecurity();
+
+        setRightBtn(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ReportDialog dialog = new ReportDialog(QRCodeDetailsActivity.this);
+                dialog.setCancelable(true);
+                dialog.setCanceledOnTouchOutside(true);
+                dialog.show();
+            }
+        });
     }
 
     private void initViews() {
@@ -60,6 +71,7 @@ public class QRCodeDetailsActivity extends BaseActivity {
         mHomeUrlTextView = (TextView) findViewById(R.id.homeUrl_textView);
         mProgressBar = (ProgressBar) findViewById(R.id.progressbar);
         mErrorView = (TextView) findViewById(R.id.error);
+        mErrorView.setOnClickListener(this);
         mSafeOpeningBtn = (TextView) findViewById(R.id.safeOpeningBtn);
     }
 
@@ -125,6 +137,7 @@ public class QRCodeDetailsActivity extends BaseActivity {
         }
     }
 
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.icp_layout:
@@ -158,6 +171,10 @@ public class QRCodeDetailsActivity extends BaseActivity {
                 Uri content_url = Uri.parse(mUrl);
                 intent.setData(content_url);
                 startActivity(intent);
+                break;
+            case R.id.error:
+                showLoading();
+                initSecurity();
                 break;
             default:
                 break;

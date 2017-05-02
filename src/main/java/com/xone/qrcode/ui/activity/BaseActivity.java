@@ -25,6 +25,7 @@ public class BaseActivity extends AppCompatActivity {
     private View mToolbarLayout;
     private TextView mActivityNameTv;
     private TextView mRightTextView;
+    private View mRightBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
@@ -79,6 +80,14 @@ public class BaseActivity extends AppCompatActivity {
         mRightTextView.setVisibility(View.VISIBLE);
         mRightTextView.setText(text);
         mRightTextView.setOnClickListener(onClickListener);
+    }
+
+    public void setRightBtn(View.OnClickListener onClickListener) {
+        if (null == mRightBtn) {
+            mRightBtn = findViewById(R.id.right_btn);
+        }
+        mRightBtn.setVisibility(View.VISIBLE);
+        mRightBtn.setOnClickListener(onClickListener);
     }
 
     public void showToast(String msg) {

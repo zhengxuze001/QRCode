@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:paddingLeft="22.0dip"
+    android:paddingRight="22.0dip">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="20.0dip"
+        android:text="举报/申诉"
+        android:textColor="#ff666666"
+        android:textSize="18.0dip"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.0px"
+        android:background="#ffd5d5d6" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="33.0dip"
+        android:paddingTop="33.0dip">
+
+        <TextView
+            android:id="@+id/reportBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:drawablePadding="8dp"
+            android:drawableTop="@drawable/qr_details_selector_report"
+            android:gravity="center"
+            android:text="举报"
+            android:textColor="@color/app_text_black"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <TextView
+            android:id="@+id/appealBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:drawablePadding="8dp"
+            android:drawableTop="@drawable/qr_details_selector_appeal"
+            android:gravity="center"
+            android:text="申诉"
+            android:textColor="@color/app_text_black"
+            android:textSize="@dimen/app_text_size_small" />
+    </LinearLayout>
+
+</LinearLayout>
