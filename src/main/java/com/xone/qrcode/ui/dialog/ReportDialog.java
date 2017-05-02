@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.xone.qrcode.R;
+import com.xone.qrcode.ui.activity.AppealActivity;
 import com.xone.qrcode.ui.activity.ReportActivity;
 
 /**
@@ -55,7 +56,9 @@ public class ReportDialog extends Dialog implements View.OnClickListener {
                 mContext.startActivity(intent);
                 break;
             case R.id.appealBtn:
-
+                Intent intent2 = new Intent(mContext, AppealActivity.class);
+                intent2.putExtra("url", mUrl);
+                mContext.startActivity(intent2);
                 break;
             default:
                 break;

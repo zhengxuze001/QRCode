@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_toolbar" />
+
+    <include layout="@layout/common_split_block" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/base_item_text_padding"
+        android:paddingTop="@dimen/base_item_text_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/qr_code_details_title_mark"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/qr_code_details_title_mark_padding"
+                android:background="@color/app_color_main" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="申诉网站："
+                android:textColor="@color/app_text_gray_deep"
+                android:textSize="@dimen/app_text_size_middle" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/appealUrlTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/base_item_text_padding"
+            android:paddingEnd="@dimen/base_item_text_padding"
+            android:paddingStart="@dimen/base_item_text_padding"
+            android:textColor="@color/app_text_gray"
+            android:textSize="@dimen/app_text_size_small" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/appealBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/common_selector_btn_warning"
+        android:clickable="true"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="我确认网站已不存在违法、违规信息，提交申诉"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/app_text_size_small" />
+
+</LinearLayout>

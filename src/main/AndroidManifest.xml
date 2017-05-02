@@ -34,7 +34,8 @@
         <activity android:name=".ui.activity.OtherQRCodeDetailsActivity" />
         <activity android:name=".ui.activity.IcpLicensingDetailsActivity" />
         <activity android:name=".ui.activity.HomeUrlDetailsActivity" />
-        <activity android:name=".ui.activity.ReportActivity"></activity>
+        <activity android:name=".ui.activity.ReportActivity" />
+        <activity android:name=".ui.activity.AppealActivity"></activity>
     </application>
 
 </manifest>
