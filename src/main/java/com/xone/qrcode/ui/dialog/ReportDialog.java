@@ -2,12 +2,14 @@ package com.xone.qrcode.ui.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 
 import com.xone.qrcode.R;
+import com.xone.qrcode.ui.activity.ReportActivity;
 
 /**
  * Created by zhengxuze on 2017/5/2.
@@ -16,9 +18,13 @@ import com.xone.qrcode.R;
 public class ReportDialog extends Dialog implements View.OnClickListener {
     private View reportBtn;
     private View appealBtn;
+    private Context mContext;
+    private String mUrl;
 
-    public ReportDialog(Context context) {
+    public ReportDialog(Context context, String url) {
         super(context, R.style.app_theme_dialog_push_btm);
+        mContext = context;
+        mUrl = url;
     }
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +33,12 @@ public class ReportDialog extends Dialog implements View.OnClickListener {
         getWindow().setGravity(Gravity.BOTTOM);
         getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         initViews();
+        initClicks();
+    }
+
+    private void initClicks() {
+        reportBtn.setOnClickListener(this);
+        appealBtn.setOnClickListener(this);
     }
 
     private void initViews() {
@@ -38,7 +50,9 @@ public class ReportDialog extends Dialog implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.reportBtn:
-
+                Intent intent = new Intent(mContext, ReportActivity.class);
+                intent.putExtra("url", mUrl);
+                mContext.startActivity(intent);
                 break;
             case R.id.appealBtn:
 
@@ -46,5 +60,6 @@ public class ReportDialog extends Dialog implements View.OnClickListener {
             default:
                 break;
         }
+        dismiss();
     }
 }

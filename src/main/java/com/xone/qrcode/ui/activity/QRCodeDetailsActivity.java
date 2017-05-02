@@ -54,7 +54,7 @@ public class QRCodeDetailsActivity extends BaseActivity implements View.OnClickL
         setRightBtn(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReportDialog dialog = new ReportDialog(QRCodeDetailsActivity.this);
+                ReportDialog dialog = new ReportDialog(QRCodeDetailsActivity.this, mUrl);
                 dialog.setCancelable(true);
                 dialog.setCanceledOnTouchOutside(true);
                 dialog.show();
