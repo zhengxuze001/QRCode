@@ -1,5 +1,6 @@
 package com.xone.qrcode.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -76,9 +77,13 @@ public class MyReportActivity extends BaseActivity implements AdapterView.OnItem
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//        Intent intent = new Intent(MyReportActivity.this, InformationDetailsActivity.class);
-//        intent.putExtra("objectId", mData.get(position - 1).getObjectId());
-//        startActivity(intent);
+        Intent intent = new Intent(MyReportActivity.this, ReportDetailsActivity.class);
+        Report report = mData.get(position - 1);
+        intent.putExtra("websiteUrl", report.getWebsiteUrl());
+        intent.putExtra("reportReason", report.getReportReason());
+        intent.putExtra("reportDetails", report.getReportDetails());
+        intent.putExtra("reportTime", report.getCreatedAt());
+        startActivity(intent);
     }
 
     @Override

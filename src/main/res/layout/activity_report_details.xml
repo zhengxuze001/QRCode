@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_toolbar" />
+
+    <include layout="@layout/common_split_block" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_item_height"
+        android:background="@drawable/base_selector_item"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/base_item_text_padding"
+        android:paddingRight="@dimen/base_item_text_padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="举报网址："
+            android:textColor="@color/app_text_gray_deep"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <TextView
+            android:id="@+id/websiteUrlTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:maxLines="1"
+            android:text="暂无举报网址信息"
+            android:textColor="@color/app_text_gray"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right_gray" />
+
+    </LinearLayout>
+
+    <include layout="@layout/common_split" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_item_height"
+        android:background="@drawable/base_selector_item"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/base_item_text_padding"
+        android:paddingRight="@dimen/base_item_text_padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="举报原因："
+            android:textColor="@color/app_text_gray_deep"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <TextView
+            android:id="@+id/reportReasonTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:maxLines="1"
+            android:text="暂无举报原因信息"
+            android:textColor="@color/app_text_gray"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right_gray" />
+
+    </LinearLayout>
+
+    <include layout="@layout/common_split" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_item_height"
+        android:background="@drawable/base_selector_item"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/base_item_text_padding"
+        android:paddingRight="@dimen/base_item_text_padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="举报时间："
+            android:textColor="@color/app_text_gray_deep"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <TextView
+            android:id="@+id/reportTimeTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:maxLines="1"
+            android:text="暂无举报时间信息"
+            android:textColor="@color/app_text_gray"
+            android:textSize="@dimen/app_text_size_small" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right_gray" />
+
+    </LinearLayout>
+
+    <include layout="@layout/common_split_block" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/base_item_text_padding"
+        android:paddingTop="@dimen/base_item_text_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/qr_code_details_title_mark"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/qr_code_details_title_mark_padding"
+                android:background="@color/app_color_main" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="详细描述："
+                android:textColor="@color/app_text_gray_deep"
+                android:textSize="@dimen/app_text_size_middle" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/reportDetailsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/base_item_text_padding"
+            android:paddingEnd="@dimen/base_item_text_padding"
+            android:paddingStart="@dimen/base_item_text_padding"
+            android:text="无"
+            android:textColor="@color/app_text_gray"
+            android:textSize="@dimen/app_text_size_small" />
+
+    </LinearLayout>
+
+</LinearLayout>
