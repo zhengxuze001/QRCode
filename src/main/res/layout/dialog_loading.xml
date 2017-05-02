@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_loading"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="22dp"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    android:paddingTop="22dp">
+
+    <com.xone.qrcode.widget.progress.ProgressWheel
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        wheel:matProg_barColor="#06a931"
+        wheel:matProg_barWidth="2dp"
+        wheel:matProg_progressIndeterminate="true" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_weight="1"
+        android:maxLines="1"
+        android:text="加载中..."
+        android:textColor="@color/app_text_gray_deep"
+        android:textSize="@dimen/app_text_size_middle" />
+
+</LinearLayout>
