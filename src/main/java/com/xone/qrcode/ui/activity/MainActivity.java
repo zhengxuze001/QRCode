@@ -1,5 +1,6 @@
 package com.xone.qrcode.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.xone.qrcode.R;
+import com.xone.qrcode.model.entities.User;
 import com.xone.qrcode.ui.fragment.DiscoverFragment;
 import com.xone.qrcode.ui.fragment.HistoryFragment;
 import com.xone.qrcode.ui.fragment.MeFragment;
@@ -66,10 +68,10 @@ public class MainActivity extends BaseFragmentActivity {
                 mIndex = 2;
                 break;
             case R.id.btn_me:
-//                if (QuNaYueHuiApp.getInstance().getUser() == null) {
-//                    startActivity(new Intent(context, LoginActivity.class));
-//                    return;
-//                }
+                if (null == User.getCurrentUser()) {
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    return;
+                }
                 mIndex = 3;
                 break;
         }
@@ -121,5 +123,11 @@ public class MainActivity extends BaseFragmentActivity {
             }
         }
         return true;
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setTabSelection(0);
     }
 }

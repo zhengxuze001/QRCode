@@ -28,14 +28,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.MainActivity" />
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:launchMode="singleTask" />
         <activity android:name=".ui.activity.QRCodeDetailsActivity" />
         <activity android:name=".ui.activity.InformationDetailsActivity" />
         <activity android:name=".ui.activity.OtherQRCodeDetailsActivity" />
         <activity android:name=".ui.activity.IcpLicensingDetailsActivity" />
         <activity android:name=".ui.activity.HomeUrlDetailsActivity" />
         <activity android:name=".ui.activity.ReportActivity" />
-        <activity android:name=".ui.activity.AppealActivity"></activity>
+        <activity android:name=".ui.activity.AppealActivity" />
+        <activity android:name=".ui.activity.LoginActivity" />
+        <activity android:name=".ui.activity.RegisterActivity" />
+        <activity android:name=".ui.activity.ForgetPasswordActivity"></activity>
     </application>
 
 </manifest>

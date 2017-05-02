@@ -8,6 +8,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.xone.qrcode.R;
+import com.xone.qrcode.model.entities.User;
 
 public class ReportActivity extends BaseActivity implements View.OnClickListener {
     private TextView reportUrlTextView;
@@ -47,7 +48,10 @@ public class ReportActivity extends BaseActivity implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.reportBtn:
-
+                if (null == User.getCurrentUser()) {
+                    startActivity(new Intent(ReportActivity.this, LoginActivity.class));
+                    return;
+                }
                 break;
             default:
                 break;

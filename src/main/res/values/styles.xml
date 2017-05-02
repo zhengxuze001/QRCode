@@ -42,4 +42,10 @@
         <item name="android:windowExitAnimation">@anim/push_exit_down_short_time</item>
     </style>
 
+    <style name="app_style_view_split_hori_gray">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1.0px</item>
+        <item name="android:background">#ffdedede</item>
+    </style>
+
 </resources>
