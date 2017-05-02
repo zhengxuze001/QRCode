@@ -32,20 +32,22 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/my_report_textView"
         style="@style/app_style_item_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableRight="@drawable/ic_arrow_right_gray"
-        android:text="我的收藏" />
+        android:drawableEnd="@drawable/ic_arrow_right_gray"
+        android:text="我的举报" />
 
     <include layout="@layout/common_split" />
 
     <TextView
+        android:id="@+id/my_appeal_textView"
         style="@style/app_style_item_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableRight="@drawable/ic_arrow_right_gray"
-        android:text="我的评论" />
+        android:drawableEnd="@drawable/ic_arrow_right_gray"
+        android:text="我的申诉" />
 
     <include layout="@layout/common_split" />
 

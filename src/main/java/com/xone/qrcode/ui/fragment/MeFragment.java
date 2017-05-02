@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.xone.qrcode.R;
 import com.xone.qrcode.model.entities.User;
 import com.xone.qrcode.ui.activity.MainActivity;
+import com.xone.qrcode.ui.activity.MyReportActivity;
 
 /**
  * Created by zhengxuze on 2017/4/10.
@@ -25,6 +26,8 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     private View mContentView;
     private ImageView mHeadImageView;
     private TextView mUserNameTv;
+    private View mMyReportBtn;
+    private View mMyAppealBtn;
     private View loginOutBtn;
     private User mUser;
 
@@ -60,12 +63,16 @@ public class MeFragment extends Fragment implements View.OnClickListener {
 
     private void initClick() {
         loginOutBtn.setOnClickListener(this);
+        mMyReportBtn.setOnClickListener(this);
+        mMyAppealBtn.setOnClickListener(this);
     }
 
     private void initView() {
         mHeadImageView = (ImageView) mContentView.findViewById(R.id.my_head_iv);
         mUserNameTv = (TextView) mContentView.findViewById(R.id.my_name_tv);
         loginOutBtn = mContentView.findViewById(R.id.loginOutBtn);
+        mMyReportBtn = mContentView.findViewById(R.id.my_report_textView);
+        mMyAppealBtn = mContentView.findViewById(R.id.my_appeal_textView);
     }
 
     @Override
@@ -79,9 +86,17 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.my_report_textView:
+                startActivity(new Intent(getActivity(), MyReportActivity.class));
+                break;
+            case R.id.my_appeal_textView:
+
+                break;
             case R.id.loginOutBtn:
                 User.logOut();
                 startActivity(new Intent(getActivity(), MainActivity.class));
+                break;
+            default:
                 break;
         }
     }
