@@ -2,7 +2,6 @@ package com.xone.qrcode.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -16,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.xone.qrcode.R;
 import com.xone.qrcode.model.entities.User;
 import com.xone.qrcode.ui.activity.MainActivity;
+import com.xone.qrcode.ui.activity.MyAppealActivity;
 import com.xone.qrcode.ui.activity.MyReportActivity;
 
 /**
@@ -90,7 +90,7 @@ public class MeFragment extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity(), MyReportActivity.class));
                 break;
             case R.id.my_appeal_textView:
-
+                startActivity(new Intent(getActivity(), MyAppealActivity.class));
                 break;
             case R.id.loginOutBtn:
                 User.logOut();
