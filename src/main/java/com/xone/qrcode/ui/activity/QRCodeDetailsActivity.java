@@ -5,18 +5,29 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.xone.qrcode.R;
+import com.xone.qrcode.adapter.CommentAdapter;
 import com.xone.qrcode.model.entities.IcpLicensing;
+import com.xone.qrcode.model.entities.Report;
+import com.xone.qrcode.model.entities.User;
 import com.xone.qrcode.model.entities.WebsiteSecurityResponse;
 import com.xone.qrcode.ui.dialog.ReportDialog;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -37,6 +48,11 @@ public class QRCodeDetailsActivity extends BaseActivity implements View.OnClickL
     private TextView mErrorView;
     private TextView mSafeOpeningBtn;
     private WebsiteSecurityResponse mWebsiteSecurityResponse;
+    private TextView mNoCommentTextView;
+    private ListView mCommentListView;
+    private CommentAdapter mCommentAdapter;
+    private ArrayList<Report> mCommentData;
+    private View mMoreCommentBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +66,7 @@ public class QRCodeDetailsActivity extends BaseActivity implements View.OnClickL
         initViews();
         showLoading();
         initSecurity();
+        initComment();
 
         setRightBtn(new View.OnClickListener() {
             @Override
@@ -58,6 +75,46 @@ public class QRCodeDetailsActivity extends BaseActivity implements View.OnClickL
                 dialog.setCancelable(true);
                 dialog.setCanceledOnTouchOutside(true);
                 dialog.show();
+            }
+        });
+    }
+
+    private void initComment() {
+        String urlHost = "";
+        try {
+            URL url = new URL(mUrl);
+            urlHost = url.getHost();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        BmobQuery<Report> query = new BmobQuery<>();
+        query.setLimit(10);
+        query.addWhereEqualTo("websiteUrl", urlHost);
+        query.include("publisher");
+        query.order("-createdAt");
+        query.setSkip(0);
+        query.findObjects(new FindListener<Report>() {
+            @Override
+            public void done(List<Report> list, BmobException e) {
+                if (null == e) {
+                    if (0 == list.size()) {
+                        mNoCommentTextView.setVisibility(View.VISIBLE);
+                        mCommentListView.setVisibility(View.GONE);
+                    } else {
+                        mCommentData = new ArrayList<>();
+                        mCommentAdapter = new CommentAdapter(QRCodeDetailsActivity.this, mCommentData);
+                        mCommentListView.setAdapter(mCommentAdapter);
+
+                        mCommentData.addAll(list);
+                        mCommentAdapter.notifyDataSetChanged();
+                        mNoCommentTextView.setVisibility(View.GONE);
+                        mCommentListView.setVisibility(View.VISIBLE);
+                    }
+                } else {
+                    mNoCommentTextView.setVisibility(View.VISIBLE);
+                    mNoCommentTextView.setText("加载评论失败，请重试");
+                    mCommentListView.setVisibility(View.GONE);
+                }
             }
         });
     }
@@ -73,6 +130,11 @@ public class QRCodeDetailsActivity extends BaseActivity implements View.OnClickL
         mErrorView = (TextView) findViewById(R.id.error);
         mErrorView.setOnClickListener(this);
         mSafeOpeningBtn = (TextView) findViewById(R.id.safeOpeningBtn);
+        mNoCommentTextView = (TextView) findViewById(R.id.noCommentTextView);
+        mNoCommentTextView.setOnClickListener(this);
+        mCommentListView = (ListView) findViewById(R.id.commentListView);
+        mMoreCommentBtn = findViewById(R.id.moreCommentBtn);
+        mMoreCommentBtn.setOnClickListener(this);
     }
 
     private void initSecurity() {
@@ -175,6 +237,14 @@ public class QRCodeDetailsActivity extends BaseActivity implements View.OnClickL
             case R.id.error:
                 showLoading();
                 initSecurity();
+                break;
+            case R.id.noCommentTextView:
+                initComment();
+                break;
+            case R.id.moreCommentBtn:
+                Intent intent2 = new Intent(QRCodeDetailsActivity.this, CommentActivity.class);
+                intent2.putExtra("url", mUrl);
+                startActivity(intent2);
                 break;
             default:
                 break;

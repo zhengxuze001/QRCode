@@ -43,7 +43,8 @@
         <activity android:name=".ui.activity.ForgetPasswordActivity" />
         <activity android:name=".ui.activity.MyReportActivity" />
         <activity android:name=".ui.activity.ReportDetailsActivity" />
-        <activity android:name=".ui.activity.MyAppealActivity"></activity>
+        <activity android:name=".ui.activity.MyAppealActivity" />
+        <activity android:name=".ui.activity.CommentActivity"></activity>
     </application>
 
 </manifest>
